@@ -17,7 +17,7 @@
                 <div class="ud-contact-content-wrapper">
                     <div class="ud-contact-title mb-12 lg:mb-[150px]">
                         <h2 class="text-[35px] font-semibold">
-                            Let's talk about Ur issus!! <br />
+                            Let's talk about Ur issues!! <br />
                             Love to hear from you!
                         </h2>
                     </div>

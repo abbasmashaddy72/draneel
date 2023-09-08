@@ -15,8 +15,8 @@
             <div class="lg:w-2/3 md:w-full">
                 <div id="accordion-collapse" data-accordion="collapse" class="mt-6">
                     @foreach ($data as $item)
-                        <div class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden">
-                            <h2 class="text-base font-semibold bg-white dark:bg-slate-900"
+                        <div class="relative shadow rounded-md overflow-hidden">
+                            <h2 class="text-base font-semibold bg-white"
                                 id="accordion-collapse-heading-{{ $loop->index }}">
                                 <button type="button"
                                     class="flex justify-between items-center p-5 w-full font-medium ltr:text-left rtl:text-right"
@@ -32,10 +32,10 @@
                                 </button>
                             </h2>
                             <div id="accordion-collapse-body-{{ $loop->index }}"
-                                class="hidden bg-white dark:bg-slate-900"
+                                class="hidden bg-white"
                                 aria-labelledby="accordion-collapse-heading-{{ $loop->index }}">
                                 <div class="p-5">
-                                    <p class="text-slate-400 dark:text-gray-400">{{ $item->answer }}</p>
+                                    <p class="text-slate-400">{{ $item->answer }}</p>
                                 </div>
                             </div>
                         </div>
