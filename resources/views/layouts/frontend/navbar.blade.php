@@ -5,8 +5,7 @@
 
             <div class="flex items-center px-4">
                 <a href="{{ route('homepage') }}">
-                    <img src="{{ asset('storage/' . $logo) }}" class="w-44 h-auto mt-4 lg:-mt-8 lg:absolute"
-                        alt="Logo">
+                    <img src="{{ asset('storage/' . $logo) }}" class="w-44 h-auto mt-4 lg:-mt-8 lg:absolute" alt="Logo">
                 </a>
 
                 <button
@@ -21,14 +20,6 @@
                 <li
                     class="font-semibold text-primary lg:text-gray-50 transition ease-in-out duration-300 mb-5 mt-5 lg:mt-0 lg:mb-0 lg:hover:scale-125 lg:hover:rotate-6 {{ Request::is('/*') ? 'underline underline-offset-2 decoration-primary lg:decoration-gray-50 decoration-4' : '' }}">
                     <a href="{{ route('homepage') }}">Home</a>
-                </li>
-                <li
-                    class="font-semibold text-primary lg:text-gray-50 transition ease-in-out duration-300 mb-5 lg:mb-0 lg:hover:scale-125 lg:hover:rotate-6 {{ Request::is('department*') ? 'underline underline-offset-2 decoration-primary lg:decoration-gray-50 decoration-4' : '' }}">
-                    <a href="{{ route('departments') }}">Departments</a>
-                </li>
-                <li
-                    class="font-semibold text-primary lg:text-gray-50 transition ease-in-out duration-300 mb-5 lg:mb-0 lg:hover:scale-125 lg:hover:rotate-6 {{ Request::is('doctor*') ? 'underline underline-offset-2 decoration-primary lg:decoration-gray-50 decoration-4' : '' }}">
-                    <a href="{{ route('teams') }}">Doctors</a>
                 </li>
                 <li
                     class="font-semibold text-primary lg:text-gray-50 transition ease-in-out duration-300 mb-5 lg:mb-0 lg:hover:scale-125 lg:hover:rotate-6 {{ Request::is('service*') ? 'underline underline-offset-2 decoration-primary lg:decoration-gray-50 decoration-4' : '' }}">

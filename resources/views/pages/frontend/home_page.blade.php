@@ -1,79 +1,37 @@
 @push('meta')
-    @include('layouts.frontend.meta', [
-        'description' => $welcome_message,
-        'image' => '//images.weserv.nl/?url=' . asset('storage/' . $logo) . '&w=200&h=200',
-        'keywords' => 'Some Text for SEO',
-    ])
+@include('layouts.frontend.meta', [
+'description' => $welcome_message,
+'image' => '//images.weserv.nl/?url=' . asset('storage/' . $logo) . '&w=200&h=200',
+'keywords' => 'Some Text for SEO',
+])
 @endpush
 <x-guest-layout>
     @push('styles')
-        <link href="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css" rel="stylesheet">
     @endpush
     @push('scripts')
-        <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
     @endpush
 
-    <!-- Sliders Section Start -->
-    <section class="bg-white pb-10 mt-28">
-
-        <div class="">
-            <div x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
-                loop: true,
-                slidesPerView: 1,
-                spaceBetween: 0,
-                parallax: true,
-                autoplay: {
-                    delay: 3500,
-                    disableOnInteraction: false,
-                },
-                speed: 800,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-            })" class="relative flex mx-auto flex-">
-
-                <div class="swiper-container" x-ref="container">
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        @foreach ($slider_images as $item)
-                            <div class="swiper-slide">
-                                <div class="flex flex-col overflow-hidden rounded shadow">
-                                    <div class="flex-shrink-0">
-                                        <img src="{{ asset('storage/' . $item->image) }}" alt=""
-                                            class="object-cover w-screen max-h-44 md:max-h-[40rem] rounded-lg">
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                @if (!\Jenssegers\Agent\Facades\Agent::isMobile())
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                @endif
-            </div>
-        </div>
-    </section>
-    <!-- Sliders Section End -->
-
-    <div class="mb-8 text-center md:col-span-6 lg:col-span-5 md:mb-0">
+    <div class="mb-8 mt-28 text-center md:col-span-6 lg:col-span-5 md:mb-0">
         <h2 class="mb-4 font-extrabold h4 text-3xl font-red-hat-display" data-aos="fade-down">
             {{ $tag_line }}</h2>
     </div>
 
     @if (\Jenssegers\Agent\Facades\Agent::isMobile() || \Jenssegers\Agent\Facades\Agent::isTablet())
-        <div class="flex justify-center">
-            <div class="mb-8 text-center space-x-2 space-y-2">
-                <a href="{{ route('book_appointment') }}"
-                    class="inline-block px-3 py-2 bg-primary font-semibold text-lg rounded-xl hover:bg-secondary text-gray-50 transition ease-in-out duration-500">{{ 'Book Appointment' }}</a>
-                <a href="{{ route('feedback') }}"
-                    class="inline-block px-3 py-2 bg-primary font-semibold text-lg rounded-xl hover:bg-secondary text-gray-50 transition ease-in-out duration-500">{{ 'Feedback' }}</a>
-                <a href="{{ 'http://124.123.32.48:9999/shivam/onlinereporting/index.jsp' }}"
-                    class="inline-block px-3 py-2 bg-primary font-semibold text-lg rounded-xl hover:bg-secondary text-gray-50 transition ease-in-out duration-500">{{ 'Online Reports' }}<i
-                        data-feather="external-link" width='20' height='20' class="inline"></i></a>
-            </div>
+    <div class="flex justify-center">
+        <div class="mb-8 text-center space-x-2 space-y-2">
+            <a href="{{ route('book_appointment') }}"
+                class="inline-block px-3 py-2 bg-primary font-semibold text-lg rounded-xl hover:bg-secondary text-gray-50 transition ease-in-out duration-500">{{
+                'Book Appointment' }}</a>
+            <a href="{{ route('feedback') }}"
+                class="inline-block px-3 py-2 bg-primary font-semibold text-lg rounded-xl hover:bg-secondary text-gray-50 transition ease-in-out duration-500">{{
+                'Feedback' }}</a>
+            <a href="{{ 'http://124.123.32.48:9999/shivam/onlinereporting/index.jsp' }}"
+                class="inline-block px-3 py-2 bg-primary font-semibold text-lg rounded-xl hover:bg-secondary text-gray-50 transition ease-in-out duration-500">{{
+                'Online Reports' }}<i data-feather="external-link" width='20' height='20' class="inline"></i></a>
         </div>
+    </div>
     @endif
 
     <!-- Welcome Section Start -->
@@ -88,16 +46,16 @@
             <div class="grid grid-cols-3 gap-2 md:gap-20">
                 <!-- first Repeater -->
                 @foreach ($features as $item)
-                    <div class="text-center">
-                        <div class="flex justify-center mb-6">
-                            <div class="w-52 py-4 flex justify-center">
-                                <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}"
-                                    class="rounded-full object-cover shadow-testimonial w-24 h-24 md:w-32 md:h-32" />
-                            </div>
+                <div class="text-center">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-52 py-4 flex justify-center">
+                            <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}"
+                                class="rounded-full object-cover shadow-testimonial w-24 h-24 md:w-32 md:h-32" />
                         </div>
-
-                        <h4 class="font-semibold text-lg md:text-2xl text-gray-900 mb-6">{{ $item->title }}</h4>
                     </div>
+
+                    <h4 class="font-semibold text-lg md:text-2xl text-gray-900 mb-6">{{ $item->title }}</h4>
+                </div>
                 @endforeach
             </div>
 
@@ -118,68 +76,31 @@
 
             <div class="grid grid-cols-4 gap-10">
                 @forelse ($counts as $item)
-                    <div class="grid grid-cols-1 md:space-x-20 mb-16 text-center">
-                        <div class="mb-5 md:mb-0">
-                            <div class="flex justify-center">
-                                <div class="w-20 py-6 flex justify-center bg-primary bg-opacity-20 rounded-xl mb-4">
-                                    <i data-feather="{{ $item->icon }}"></i>
-                                </div>
+                <div class="grid grid-cols-1 md:space-x-20 mb-16 text-center">
+                    <div class="mb-5 md:mb-0">
+                        <div class="flex justify-center">
+                            <div class="w-20 py-6 flex justify-center bg-primary bg-opacity-20 rounded-xl mb-4">
+                                <i data-feather="{{ $item->icon }}"></i>
                             </div>
-                            <div class="flex justify-center">
-                                <h3 class="font-semibold text-gray-900 text-xl md:text-3xl mb-4">
-                                    {{ $item->value }}
-                                </h3>
-                            </div>
-                            <p class="font-light text-gray-800 text-md md:text-lg">{{ $item->title }}</p>
                         </div>
+                        <div class="flex justify-center">
+                            <h3 class="font-semibold text-gray-900 text-xl md:text-3xl mb-4">
+                                {{ $item->value }}
+                            </h3>
+                        </div>
+                        <p class="font-light text-gray-800 text-md md:text-lg">{{ $item->title }}</p>
                     </div>
+                </div>
                 @empty
-                    <div class="w-full px-4">
-                        <div class="text-center font-bold text-gray-800 text-lg">No Data Available</div>
-                    </div>
+                <div class="w-full px-4">
+                    <div class="text-center font-bold text-gray-800 text-lg">No Data Available</div>
+                </div>
                 @endforelse
             </div>
         </div> <!-- container.// -->
 
     </section>
     <!-- count section //end -->
-
-    <!-- feature section -->
-    <section class="bg-white md:mt-10">
-
-        <div class="container max-w-screen-2xl mx-auto px-4">
-
-            <p class="font-bold text-gray-900 text-xl md:text-2xl text-center uppercase mb-6">Our Departments</p>
-
-            <section class="lg:px-8 py-8">
-                <!-- Blog Grip -->
-                <div class="flex flex-wrap -mx-4">
-                    <!-- First Repeater -->
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-1 md:gap-4 mx-auto">
-                        @foreach ($departments as $item)
-                            <div class="mb-4 group wow fadeInUp p-4 text-center items-center" data-wow-delay=".1s">
-                                <a href="{{ route('department_single', ['id' => $item->id]) }}" class="block">
-                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}"
-                                        class="w-40 h-40 object-cover border-gray-200 border-2 rounded-full shadow-testimonial mx-auto" />
-                                </a>
-                                <div class="mt-2">
-                                    <h3>
-                                        <a href="{{ route('department_single', ['id' => $item->id]) }}"
-                                            class="font-semibold teloginxt-xl text-lg md:mb-4 inline-block text-dark hover:text-primary">
-                                            {{ $item->name }}
-                                        </a>
-                                    </h3>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-
-                </div>
-            </section>
-        </div> <!-- container.// -->
-
-    </section>
-    <!-- feature section //end -->
 
     <!-- Google Reviews -->
     <section class="bg-white md:mt-10">
@@ -206,20 +127,6 @@
             <a href="{{ route('reviews') }}"
                 class="bg-primary hover:bg-secondary px-7 py-5 font-semibold text-white text-lg rounded-xl transition ease-in-out duration-500">More
                 Reviews</a>
-        </div>
-
-    </section>
-
-    <section class="bg-white mt-10">
-
-        <div class="container max-w-screen-2xl mx-auto px-4">
-            <p class="font-bold text-gray-900 text-lg md:text-2xl text-center uppercase mb-6">Our Doctors</p>
-
-            <h1 class="font-normal text-gray-900 text-lg md:text-xl text-center leading-normal mb-10">
-                {{ $team_excerpt }}</h1>
-            <section class="px-8 py-8">
-                @livewire('pagination.frontend.teams', ['where' => 'homepage'])
-            </section>
         </div>
 
     </section>

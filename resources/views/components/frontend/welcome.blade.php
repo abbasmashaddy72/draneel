@@ -7,8 +7,8 @@
 
                 <!-- Content -->
                 <div class="text-center mb-8">
-                    <h2 class="mb-4 font-extrabold h4 text-3xl font-red-hat-display" data-aos="fade-down">
-                        {{ 'Welcome to ' }}{{ config('app.name', 'Laravel') }}</h2>
+                    <h2 class="mb-4 font-extrabold h4 text-2xl font-red-hat-display" data-aos="fade-down">
+                        {{ config('app.name', 'Laravel') }}</h2>
                     <p class="text-justify whitespace-pre-line">
                         {{ $welcome_message }}
                     </p>
@@ -25,8 +25,7 @@
                         <!-- Play button -->
                         <a class="absolute transition duration-150 ease-in-out cursor-pointer hover:opacity-75"
                             @click.prevent="modalExpanded = true" aria-controls="modal">
-                            <img src="{{ asset('svg/play-button.svg') }}" width="80" height="80"
-                                alt="Play" />
+                            <img src="{{ asset('svg/play-button.svg') }}" width="80" height="80" alt="Play" />
                         </a>
                     </div>
 
@@ -60,28 +59,6 @@
 
             </div>
 
-        </div>
-    </div>
-</section>
-<section>
-    <div class="max-w-7xl px-4 mx-auto sm:px-6">
-        <div class="pt-8 pb-10 md:pt-8 md:pb-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 text-center gap-20">
-                <div>
-                    <h2 class="mb-4 font-extrabold h4 text-3xl font-red-hat-display" data-aos="fade-down">
-                        {{ 'Our Mission' }}</h2>
-                    <p class="text-justify whitespace-pre-line">
-                        {{ $mission_message }}
-                    </p>
-                </div>
-                <div>
-                    <h2 class="mb-4 font-extrabold h4 text-3xl font-red-hat-display" data-aos="fade-down">
-                        {{ 'Our Vision' }}</h2>
-                    <p class="text-justify whitespace-pre-line">
-                        {{ $vision_message }}
-                    </p>
-                </div>
-            </div>
         </div>
     </div>
 </section>
